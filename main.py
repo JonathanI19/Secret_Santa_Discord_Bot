@@ -2,8 +2,6 @@ import discord
 import os
 from dotenv import load_dotenv
 
-
-import dotenv
 def main():
     load_dotenv()
     TOKEN_KEY = os.getenv('TOKEN_KEY')
