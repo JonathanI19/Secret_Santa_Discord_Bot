@@ -1,6 +1,7 @@
 import discord
 import os
 from dotenv import load_dotenv
+from . import MyClient
 
 def main():
     load_dotenv()
