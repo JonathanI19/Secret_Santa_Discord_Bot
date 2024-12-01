@@ -1,11 +1,10 @@
-import discord
-
-class SSUser(discord.User):
+class SSUser():
     
     def __init__(self, member):
+        print(member.id)
         self._name = member.name  # Private attribute
-        self._id = member.id # Private attribut
-        self._ssid = "" # Private attribut
+        self._id = member.id # Private attribute
+        self._ssid = "" # Private attribute
 
     def get_name(self):
         return self._name
