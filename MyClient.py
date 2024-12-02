@@ -18,12 +18,13 @@ class MyClient(discord.Client):
         self.user_list = []
         self.set_channel_id(message.channel.id)
         self.assign_secret_santas(self.generate_SSusers())
+        await self.send_secret_santas()
 
     def generate_SSusers(self):
         channel = self.get_channel(self.get_channel_id())
         members = channel.members
         for member in members:
-            if member.id != 1312872037479350293:
+            if member.bot is not True:
                 self.user_list.append(SSUser(member))
         return self.user_list
 
@@ -41,8 +42,26 @@ class MyClient(discord.Client):
             unassigned_participants.remove(candidate)
             user.set_ssid(candidate._id)
             user.set_ssname(candidate._name)
+            
+    async def send_secret_santas(self):
+        for member in self.user_list:
+            user = self.get_user(member.get_id())
+            await user.send("PLEASE IGNORE THIS IS A TEST")
+            await user.send(f"Ho Ho Ho Ho")
+            await user.send(r"""\          ______
+                    _.' _..._\
+                    _/  .'_..._ '
+                .' / /.'==..=\:
+                '._\ \\  O _O<'
+                    _/_/ ._'._).'_
+                /   \_/ .=== \ \
+                \    |       / |
+                    \    \ \  | |/
+                    '-._ | .   /
+                        '.\   /   
+                            \__\ """)
+            await user.send("\n\nYour Target is " + member.get_ssname())
 
-            print(user._name + ', ' + user._ssname)
         
     
     def get_channel_id(self):
