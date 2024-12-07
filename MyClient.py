@@ -46,21 +46,25 @@ class MyClient(discord.Client):
     async def send_secret_santas(self):
         for member in self.user_list:
             user = self.get_user(member.get_id())
-            await user.send("PLEASE IGNORE THIS IS A TEST")
-            await user.send(f"Ho Ho Ho Ho")
-            await user.send(r"""\          ______
-                    _.' _..._\
-                    _/  .'_..._ '
-                .' / /.'==..=\:
-                '._\ \\  O _O<'
-                    _/_/ ._'._).'_
-                /   \_/ .=== \ \
-                \    |       / |
-                    \    \ \  | |/
-                    '-._ | .   /
-                        '.\   /   
-                            \__\ """)
-            await user.send("\n\nYour Target is " + member.get_ssname())
+            await user.send(f"HO HO HO HO HO HO HO")
+            
+            await user.send("######################################")
+            
+            await user.send("Welcome to Secret Santa 2024!")
+            
+            await user.send("######################################")
+            
+            await user.send("Here are some important rules to keep in mind:")
+            await user.send("Budget: ~$20")
+            await user.send("Platform: Steam/PSN for Greg")
+            await user.send("When: When buying on steam, schedule delivery for Christmas Morning at 10AM")
+            await user.send("Please post your steam friend code/username or PSN username in the chat")
+            
+            await user.send("######################################")
+            
+            await user.send("You are " + member.get_ssname()+ "'s Secret Santa!")
+            
+            await user.send("https://thumbs.dreamstime.com/b/bad-santa-28240249.jpg")
 
         
     
